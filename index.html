@@ -3,14 +3,20 @@
 
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
     <style>
         body {
             background-color: #343a40;
             color: #fff;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
         }
 
         .jumbotron {
             background-color: #007bff;
+            padding: 2rem 1rem;
         }
 
         .card {
@@ -26,30 +32,107 @@
         .alert {
             display: none;
         }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .form-group label {
+            color: #adb5bd;
+        }
+
+        .form-control {
+            background-color: #343a40;
+            color: #fff;
+            border: 1px solid #495057;
+        }
+
+        .form-control::placeholder {
+            color: #6c757d;
+        }
+
+        @media (min-width: 992px) {
+            .row {
+                display: flex;
+                align-items: stretch;
+            }
+
+            .col-lg-6 {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .subtitle {
+            font-family: 'Pacifico', cursive;
+            font-size: 8rem;
+
+        }
+
+        .presents {
+            font-family: 'Pacifico', cursive;
+            font-size: 1rem;
+        }
+
+        .link-button {
+            color: white;
+            text-decoration: none;
+        }
+
+        .ieee-logo {
+            height: 50px;
+            margin-left: 10px;
+        }
     </style>
 </head>
 
 <body>
     <section class="jumbotron text-white text-center">
         <div class="container">
-            <h1 class="display-4">Entry Form for Questions</h1>
+            <h6 class="display-4 d-flex align-items-center justify-content-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQv7ecm4nGkh6D7Lwc_IC1bQ1vZyo77lDLTQ&s"
+                    class="ieee-logo" alt="IEEE Logo">
+                IEEE SB GVPCE
+            </h6>
+            <p class="presents">presents</p>
+            <p class="subtitle">Alumni Connect</p>
         </div>
     </section>
 
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-4">
-                <div class="card text-white">
-                    <img src="./assets/KS.jpg" class="card-img-top" style="width: 500px; height: auto;" alt="Description Image">
+                <div class="card text-white h-100">
+                    <img src="./assets/KS.jpg" class="card-img-top" alt="Description Image">
                     <div class="card-body">
                         <h5 class="card-title">Sree Vatsava</h5>
-                        <p class="card-text">He's the Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                            an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                            has survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged. It was popularised in the 1960s with the release of
-                            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                            survived not only five centuries, but also the leap into electronic typesetting, remaining
+                            essentially unchanged.</p>
+                        <button class="btn btn-primary" id="submit-button">
+                            <a href="https://www.linkedin.com/in/bingumalla-dvijesh-2a99b022b/" class="link-button">
+                                LinkedIn
+                            </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -94,9 +177,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="question">Question</label>
+                            <label for="question">Questions</label>
                             <textarea class="form-control" id="question" rows="3"
-                                placeholder="Enter the question you wanted to ask" name="Question"></textarea>
+                                placeholder="Enter the questions you wanted to ask" name="Question"></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-block" id="submit-button">Submit</button>
@@ -110,12 +193,11 @@
 
     <script>
         document.getElementById("form").addEventListener("submit", function (e) {
-            e.preventDefault(); // Prevent the default form submission
+            e.preventDefault();
             document.getElementById("message").textContent = "Submitting..";
             document.getElementById("message").style.display = "block";
             document.getElementById("submit-button").disabled = true;
 
-            // Collect the form data
             var formData = new FormData(this);
             var keyValuePairs = [];
             for (var pair of formData.entries()) {
@@ -124,7 +206,6 @@
 
             var formDataString = keyValuePairs.join("&");
 
-            // Send a POST request to your Google Apps Script
             fetch(
                 "https://script.google.com/macros/s/AKfycbyEaCzSC9nrbmrq5aRPFKr4FGZDt3kXfmHJnwWbcAdiSXD2vuqruen1S_fIslOZasSglA/exec",
                 {
@@ -137,17 +218,14 @@
                 }
             )
                 .then(function (response) {
-                    // Check if the request was successful
                     if (response) {
-                        return response; // Assuming your script returns JSON response
+                        return response;
                     } else {
                         throw new Error("Failed to submit the form.");
                     }
                 })
                 .then(function (data) {
-                    // Display a success message
-                    document.getElementById("message").textContent =
-                        "Data submitted successfully!";
+                    document.getElementById("message").textContent = "Data submitted successfully!";
                     document.getElementById("message").classList.remove("alert-danger");
                     document.getElementById("message").classList.add("alert-success");
                     document.getElementById("message").style.display = "block";
@@ -160,10 +238,8 @@
                     }, 2600);
                 })
                 .catch(function (error) {
-                    // Handle errors, you can display an error message here
                     console.error(error);
-                    document.getElementById("message").textContent =
-                        "An error occurred while submitting the form.";
+                    document.getElementById("message").textContent = "An error occurred while submitting the form.";
                     document.getElementById("message").classList.remove("alert-success");
                     document.getElementById("message").classList.add("alert-danger");
                     document.getElementById("message").style.display = "block";

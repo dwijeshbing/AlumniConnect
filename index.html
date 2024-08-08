@@ -3,8 +3,7 @@
 
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #343a40;
@@ -65,8 +64,15 @@
                 justify-content: center;
             }
 
-            .author{
+            .author {
                 height: 50%;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .author {
+                width: 100%;
+                height: 300PX;
             }
         }
 
@@ -87,7 +93,6 @@
         .subtitle {
             font-family: 'Pacifico', cursive;
             font-size: 8rem;
-
         }
 
         .presents {
@@ -111,8 +116,7 @@
     <section class="jumbotron text-white text-center">
         <div class="container">
             <h6 class="display-4 d-flex align-items-center justify-content-center">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQv7ecm4nGkh6D7Lwc_IC1bQ1vZyo77lDLTQ&s"
-                    class="ieee-logo" alt="IEEE Logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQv7ecm4nGkh6D7Lwc_IC1bQ1vZyo77lDLTQ&s" class="ieee-logo" alt="IEEE Logo">
                 IEEE SB GVPCE
             </h6>
             <p class="presents">presents</p>
@@ -127,11 +131,7 @@
                     <img src="./assets/KS.jpg" class="card-img-top author" alt="Description Image">
                     <div class="card-body">
                         <h5 class="card-title">Sree Vatsava</h5>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                            survived not only five centuries, but also the leap into electronic typesetting, remaining
-                            essentially unchanged.</p>
+                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                         <button class="btn btn-primary" id="submit-button">
                             <a href="https://www.linkedin.com/in/bingumalla-dvijesh-2a99b022b/" class="link-button">
                                 LinkedIn
@@ -145,20 +145,17 @@
                     <form id="form" method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter Your Name" name="Name"
-                                required>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Your Name" name="Name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="roll">Roll Number</label>
-                            <input type="text" class="form-control" id="roll" placeholder="Enter Your Roll Number"
-                                name="Roll" required>
+                            <input type="text" class="form-control" id="roll" placeholder="Enter Your Roll Number" name="Roll" required>
                         </div>
 
                         <div class="form-group">
                             <label for="dept">Branch</label>
-                            <input type="text" class="form-control" id="dept" placeholder="Enter your Department"
-                                name="Dept" required list="deptlist">
+                            <input type="text" class="form-control" id="dept" placeholder="Enter your Department" name="Dept" required list="deptlist">
                             <datalist id="deptlist">
                                 <option value="CSE">CSE</option>
                                 <option value="CSD">CSD</option>
@@ -176,14 +173,12 @@
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Your Email" name="Email"
-                                required>
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" name="Email" required>
                         </div>
 
                         <div class="form-group">
                             <label for="question">Questions</label>
-                            <textarea class="form-control" id="question" rows="3"
-                                placeholder="Enter the questions you wanted to ask" name="Question"></textarea>
+                            <textarea class="form-control" id="question" rows="3" placeholder="Enter the questions you wanted to ask" name="Question"></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-block" id="submit-button">Submit</button>
